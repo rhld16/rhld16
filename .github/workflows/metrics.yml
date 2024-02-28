@@ -1,0 +1,26 @@
+name: Metrics
+on:
+  # Schedule updates (each hour)
+  schedule: [{cron: "0 */3 * * *"}]
+  workflow_dispatch:
+  push: {branches: ["main"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Metrics embed
+        uses: lowlighter/metrics@v3.32
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          repositories_forks: yes
+          plugin_languages: yes
+          plugin_habits: yes
+#           plugin_lines: yes
+          plugin_traffic: yes
+          plugin_music: yes
+          plugin_music_provider: lastfm
+          plugin_music_user: ${{ secrets.LASTFM_USER }}
+          plugin_music_token: ${{ secrets.LASTFM_API_KEY }}
+          plugin_music_mode: "recent"
