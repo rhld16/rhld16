@@ -1,7 +1,7 @@
 name: Metrics
 on:
-  # Schedule updates (each hour)
-  schedule: [{cron: "0 */3 * * *"}]
+  # Schedule updates (every 8 hours)
+  schedule: [{cron: "0 */8 * * *"}]
   workflow_dispatch:
   push: {branches: ["main"]}
 jobs:
