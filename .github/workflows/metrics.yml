@@ -11,7 +11,7 @@ jobs:
       contents: write
     steps:
       - name: Metrics embed
-        uses: gh-metrics/metrics@latest
+        uses: lowlighter/metrics@v3.34
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           repositories_forks: yes
